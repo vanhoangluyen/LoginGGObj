@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [GIDSignIn sharedInstance].uiDelegate = self;
+    [[GIDSignIn sharedInstance] signInSilently];
+    
 }
 
 
@@ -25,5 +28,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)signOut:(id)sender {
+    [[GIDSignIn sharedInstance] signOut];
+    self.statusLabelText.text = @"Google  Not Sign In";
+}
+- (IBAction)signIn:(id)sender {
+    self.statusLabelText.text = @"Google Signed In";
+}
 
 @end

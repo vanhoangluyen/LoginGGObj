@@ -17,9 +17,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [GIDSignIn sharedInstance].clientID = @"874071361732-ho51qtf0kvo7a3lrg1911gof8n87271g.apps.googleusercontent.com";
+    [GIDSignIn sharedInstance].delegate = self;
+    
     return YES;
 }
-
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
+    return [[GIDSignIn sharedInstance] handleURL:url
+                               sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                      annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+}
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[GIDSignIn sharedInstance] handleURL:url
+                               sourceApplication:sourceApplication
+                                      annotation:annotation];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -47,5 +59,14 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
+    NSString *userID = user.userID;
+    NSString *idToken = user.authentication.idToken;
+    NSString *fullName = user.profile.name;
+    NSString *giveName = user.profile.givenName;
+    NSString *familyName = user.profile.familyName;
+    NSString *email = user.profile.email;
+}
 
 @end
