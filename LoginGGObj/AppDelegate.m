@@ -67,6 +67,21 @@
     NSString *giveName = user.profile.givenName;
     NSString *familyName = user.profile.familyName;
     NSString *email = user.profile.email;
+    NSDictionary *statusText = @{@"statusText":
+                                     [NSString stringWithFormat:@"Signed in user: %@",
+                                      fullName]};
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"ToggleAuthUINotification"
+     object:nil
+     userInfo:statusText];
 }
-
+- (void)signIn:(GIDSignIn *)signIn
+didDisconnectWithUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    NSDictionary *statusText = @{@"statusText": @"Disconnected user" };
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"ToggleAuthUINotification"
+     object:nil
+     userInfo:statusText];
+}
 @end

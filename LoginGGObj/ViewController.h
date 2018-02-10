@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *signOut;
 @property (strong, nonatomic) IBOutlet GIDSignInButton *signInButton;
 @property (strong, nonatomic) IBOutlet UILabel *statusLabelText;
+@property (strong, nonatomic) IBOutlet UIButton *disconnect;
 
 
 @end

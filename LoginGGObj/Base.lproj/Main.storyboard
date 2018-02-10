@@ -23,7 +23,7 @@
                                 <rect key="frame" x="16" y="558.5" width="343" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vi-uS-pmV">
-                                        <rect key="frame" x="0.0" y="0.0" width="169" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="111" height="50"/>
                                         <color key="backgroundColor" red="0.026357225889999999" green="0.21010520390000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Sign Out">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,12 +33,19 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e6w-4j-gzT" customClass="GIDSignInButton">
-                                        <rect key="frame" x="174" y="0.0" width="169" height="50"/>
+                                        <rect key="frame" x="116" y="0.0" width="111" height="50"/>
                                         <color key="backgroundColor" red="0.026357225889999999" green="0.21010520390000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KA1-Ds-cYx"/>
-                                        </connections>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFp-pb-GZ2">
+                                        <rect key="frame" x="232" y="0.0" width="111" height="50"/>
+                                        <color key="backgroundColor" red="0.026357225889999999" green="0.21010520390000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Disconnect">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="disconnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T6s-hX-6Dw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wU1-ew-eEd">
@@ -64,6 +71,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="disconnect" destination="fFp-pb-GZ2" id="usD-3O-1sO"/>
                         <outlet property="signInButton" destination="e6w-4j-gzT" id="5hJ-FN-0Oo"/>
                         <outlet property="signOut" destination="8vi-uS-pmV" id="dif-XI-4IM"/>
                         <outlet property="statusLabelText" destination="wU1-ew-eEd" id="ohd-ll-A3z"/>
